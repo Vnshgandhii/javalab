@@ -1,0 +1,25 @@
+import java.io.*;
+
+class c1 {
+    private String s1 = "But finding a script that was more than a one-line gag was a convoluted process.";
+
+    class c2 {
+        private String s2 = "I was furious with all these blokes with their one-line ideas getting successful around me.";
+        void display() {
+            System.out.println(s1 + s2);
+        }
+    }
+
+    void cinnerclass() {
+        c2 obj1 = new c2();
+        obj1.display();
+    }
+}
+
+
+public class  {
+    public static void main(String[] args) {
+        c1 obj= new c1();
+        obj.cinnerclass(); 
+    }
+}
