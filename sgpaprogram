@@ -1,0 +1,114 @@
+import java.io.*;
+import java.util.Scanner;
+
+class Student {
+    String Username;
+    String Name;
+
+    int[] M1;
+    int N1;
+    int[] C1;
+
+    int[] C2;
+    int[] M2;
+    int N2;
+
+    public Student(int N1, int N2) {
+        this.N1 = N1;
+        this.N2 = N2;
+        creditssem1 = new int[N1];
+        M1 = new int[N1];
+        C2 = new int[N2];
+        M2 = new int[N2];
+    }
+
+    public void acceptdetails() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter Username : ");
+        Username = scanner.nextLine();
+        System.out.print("Enter Name: ");
+        name = scanner.nextLine();
+        System.out.print("For Sem1");
+        for (int i = 0; i < N1; i++) {
+            System.out.print("Enter your credits for this subject ");
+            creditssem1[i] = scanner.nextInt();
+            System.out.print("Enter your marks for this subject ");
+            M1[i] = scanner.nextInt();
+        }
+        System.out.print("For Sem2");
+        for (int i = 0; i < N2; i++) {
+            System.out.print("Enter your credits for this subject");
+            C2[i] = scanner.nextInt();
+            System.out.print("Enter your marks for this subject");
+            M2[i] = scanner.nextInt();
+        }
+    }
+
+    public void  DISPLAYD() {
+
+	System.out.println("Name : " + Name);
+        System.out.println("Username : " + Username);
+        
+
+        System.out.print("For Sem1");
+        for (int i = 1; i <= N1; i++) {
+            System.out.println("Subject---" + (i) + "-Marks---" + M1[i-1]+ "-Credits---" + C1[i-1] );
+        }
+        System.out.print("For Sem2");
+        for (int i = 1; i <= N2; i++) {
+            System.out.println("Subject----" + (i)  + "-Marks----" + M2[i-1]+ "-Credits----" + C2[i-1]);
+        }
+    }
+    public double cgpa(double SGPA1, double SGPA2){
+        double d= (SGPA1+SGPA2);
+        d=d/2;
+        return d;
+    }
+    public double sgpa(int X, int[] Credits, int[] Marks) {
+        int TC = 0;
+        double TP = 0.0;
+
+        for (int i = 0; i < X; i++) {
+            TC += Credits[i];
+            TP += (Credits[i] * subtotalgpa(Marks[i]));
+        }
+
+        return (TP / TC);
+    }
+
+    private double subtotalgpa(int mark) {
+        if (mark >= 90) {
+            return 10.0;
+        } else if (mark >= 80) {
+            return 9.0;
+        } else if (mark >= 70) {
+            return 8.0;
+        } else if (mark >= 60) {
+            return 7.0;
+        } else if (mark >= 50) {
+            return 6.0;
+        } else if (mark >= 40) {
+            return 5.0;
+        } else {
+            return 0.0; 
+        }
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter number of subjects in sem1-");
+        int N1 = scanner.nextInt();
+        System.out.print("Enter number of subjects in sem2-");
+        int N2 = scanner.nextInt();
+        Student student = new Student(N1,N2);
+        student.acceptdetails();
+        student.displaydetails();
+        double SGPA1 = student.sgpa(N1,student.creditssem1,student.M1);
+        System.out.printf("SGPA of sem1="+ SGPA1);
+        double SGPA2 = student.sgpa(N2,student.C2,student.M2);
+        System.out.printf("SGPA of sem2="+ SGPA2);
+        double cgpatotal = student.cgpa(SGPA1,SGPA2);
+        System.out.printf("CGPA=" + cgpatotal);
+        scanner.close();
+    }
+}
