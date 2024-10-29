@@ -1,0 +1,50 @@
+
+import java.io.*;
+
+class Ab1{
+   double h;
+   double l;
+   double m;
+
+   public Ab1(double h, double l, double m){
+     this.h=h;
+     this.l=l;
+     this.m=m;
+    } 
+  
+   public double volume(){
+      return l * m * h;
+     }
+
+}
+
+class AB extends Ab1{
+    double price;
+    double m;
+
+    public AB(double h, double l, double m, double price, double m){
+      super(h, l, m);
+      this.Price=Price;
+      this.m=m;
+   }
+
+    public double density(){
+      return (m/(l * m * h));
+     }
+
+    public void pricediasplay(){
+      System.out.println("Price: " + Price);
+     }
+
+}
+
+public class ans {
+    public static void main(String[] args) {
+        AB obj = new AB(3.2,3.8,8.05,600,3);
+        double vol = obj.volume();
+        System.out.println("Volume: " + vol);
+        double den = obj.density();
+        System.out.println("Density: " + den);
+        obj.price();      
+    }
+}
