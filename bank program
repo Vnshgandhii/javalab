@@ -1,0 +1,108 @@
+import java.util.Scanner;
+class bank{
+Scanner sc = new Scanner(System.in);
+  public String name;
+      public String date;
+      public String nationality;
+      public String proof;
+      public int accno = 0;
+      public double balance;
+public int accid=1000;
+
+      public void account(){
+            System.out.println("Enter name:");
+            name=sc.nextLine();
+            System.out.println("Enter date:");
+            date=sc.nextLine();
+            System.out.println("Enter nationality:");
+            nationality=sc.nextLine();
+            System.out.println("Enter aadhar number:");
+            proof=sc.nextLine();
+do{
+System.out.println("Basic Balance:");
+balance=sc.nextDouble();
+if(balance<1000){
+        System.out.println("Initial balance should be 1000");
+}else{
+System.out.println("Account Created");
+}
+}while(balance<1000);
+accno++;
+accid=accno;
+
+}
+
+    public void deposit(double amount){
+System.out.println("Enter the amount to deposit:");
+amount=sc.nextDouble();
+        balance+=amount;
+System.out.println("Your Balance:"+balance);
+    }
+
+    public void withdraw(double amount){
+System.out.println("Enter the amount to withdraw:");
+amount=sc.nextDouble();
+        if(balance>amount){
+            balance-=amount;
+System.out.println("Your Balance is:"+balance);
+        }
+        else{
+            System.out.println("Insufficient Balance");
+        }
+}
+
+      public void getbalance(){
+          System.out.println("Your current balance is: " + balance);
+      }
+
+public void displayAcc() {
+System.out.println("Displaying account details: ");
+System.out.println("Name: " + name);
+System.out.println("Account Number: " + accid);
+System.out.println("Current balance: " + balance);
+}
+
+}
+
+
+
+
+public class BankSystem {
+public static void main(String[] args) {
+Scanner s = new Scanner(System.in);
+bank obj = new bank();
+int choice = 0;
+System.out.println("WELCOME TO ABC BANK!");
+do {
+System.out.println("How can we help you today?");
+System.out.println("1: Create account ");
+System.out.println("2: Deposit money ");
+System.out.println("3: Withdraw money ");
+System.out.println("4: Check balance ");
+System.out.println("5: Display account information ");
+System.out.println("6: Exit");
+choice = s.nextInt();
+switch (choice) {
+case 1:
+obj.account();
+break;
+case 2:
+obj.deposit(1000);
+break;
+case 3:
+obj.withdraw(299);
+break;
+case 4:
+obj.getbalance();
+break;
+case 5:
+obj.displayAcc();
+break;
+default:
+if (choice != 6) {
+System.out.println("Invalid Input!");
+}
+}
+} while (choice != 6);
+}
+}
