@@ -1,0 +1,24 @@
+import java.io.*;
+
+class c {
+    private static int i = 10;
+
+    public c() {
+        i++; 
+    }
+    public static int display() {
+        return i;
+    }
+}
+
+
+public class c1 {
+    public static void main(String[] args) {
+
+        System.out.println("Initial Value:" + c.display());
+        c c4 = new c();
+        c c3 = new c();
+        c c2 = new c();
+        System.out.println("New Value:" + c.display());
+    }
+}
