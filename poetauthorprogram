@@ -1,0 +1,44 @@
+import java.io.*;
+import java.util.Scanner;
+
+class Book {
+    double price;
+    int numofpages;
+    String Name;
+    String author;
+    
+
+    public Book(String Name, String author, double price, int numofpages) {
+
+        this.Name = Name;
+        this.author = author;
+        this.price = price;
+        this.numofpages = numofpages;
+    }
+
+    public void display() {
+        System.out.println("Book Name: " + Name);
+        System.out.println("Author: " + author);
+        System.out.println("Price:" + price);
+        System.out.println("Number of Pages: " + numofpages);
+    }
+
+ }
+
+public class vanshbook {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Name : ");
+        String Name = scanner.nextLine();
+        System.out.print("Author : ");
+        String author = scanner.nextLine();
+        System.out.print("Price : ");
+        double price = scanner.nextDouble();
+        System.out.print("Number of Pages : ");
+        int numofpages = scanner.nextInt();
+        Book book = new Book(Name, author, price, numofpages);
+        book.display();
+        System.out.print(book);
+
+    }
+}
