@@ -1,0 +1,22 @@
+public class program3{
+    public static void main(String[] args) {
+        int int1 = 200;
+        double dou1 = int1;
+        System.out.println("Implicit Type Casting from integer to double");
+        System.out.println("Integer: " + int1);
+        System.out.println("Double: " + dou1);
+        double dou2 = 20.01;
+        int int2 = (int) dou2;
+        System.out.println("Explicit Type Casting from double to integer");
+        System.out.println("Double: " + dou2);
+        System.out.println("Integer: " + int2);
+        byte by1 = 9;
+        int int3 = by1; 
+        System.out.println("Byte: " + by1);
+        System.out.println("Integer: " + int3);
+        int int7 = 8; 
+        byte by2 = (byte) int7;
+        System.out.println("Converted byte is: " + by2);
+        System.out.println("Your Integer is: " + int7);
+    }
+}
